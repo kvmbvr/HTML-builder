@@ -9,7 +9,6 @@ const bundle = fs.createWriteStream(path.join(distPath, 'bundle.css'));
 fs.readdir(stylesPath, (_, files) => {
   for(let i = 0; i < files.length; i++) {
     if(path.extname(files[i]) === '.css') {
-      console.log(files[i])
       const rs = fs.createReadStream(path.join(stylesPath, files[i]), 'utf-8')
       rs.on('data', (chunk) => bundle.write(chunk))
     }
